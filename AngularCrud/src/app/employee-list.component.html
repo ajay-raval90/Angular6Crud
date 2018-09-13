@@ -1,0 +1,32 @@
+﻿<div *ngIf="!IsemployeeLoaded"> Loading Employees....</div>
+<div *ngIf="IsemployeeLoaded && Employees.length == 0"> No Employees found!!</div>
+<div *ngIf="IsemployeeLoaded">
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">CreatedAt</th>
+                <th scope="col">UpdatedAt</th>
+                <th scope="col">Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let emp of Employees">
+
+                <th scope="col">{{emp.Id}}</th>
+                <th scope="col">{{emp.FirstName}}</th>
+                <th scope="col">{{emp.LastName}}</th>
+                <th scope="col">{{emp.Email}}</th>
+                <th scope="col">{{emp.CreatedAt | date}}</th>
+                <th scope="col">{{emp.UpdatedAt | date}}</th>
+                <th scope="col">
+                    <button class="btn btn-primary" (click)="editEmployee(emp)">Edit</button>
+                    <button class="btn btn-danger" (click)="deleteEmployee(emp)">Delete </button>
+                </th>
+            </tr>
+        </tbody>
+    </table>
+</div>
