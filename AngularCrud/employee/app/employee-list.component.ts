@@ -2,7 +2,7 @@
 import { EmployeeService } from './shared/employee-service'
 @Component({
     selector: 'employee-list',
-    templateUrl:'/src/app/employee-list.component.html'
+    templateUrl:'/employee/app/employee-list.component.html'
 })
 export class EmployeeListComponent implements OnInit
 {
