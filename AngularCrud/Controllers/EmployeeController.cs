@@ -6,12 +6,11 @@ using System.Web.Mvc;
 
 namespace AngularCrud.Controllers
 {
-    public class HomeController : Controller
+    public class EmployeeController : Controller
     {
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
-
             return View();
         }
     }
