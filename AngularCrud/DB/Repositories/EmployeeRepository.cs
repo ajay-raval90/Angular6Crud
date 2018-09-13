@@ -33,9 +33,20 @@ namespace AngularCrud.DB
         }
         public Employee UpdateEmployee(Employee emp)
         {
-            emp.UpdatedAt = DateTime.Now;
-            context.Entry(emp).State = EntityState.Modified;
-            SaveChanges();
+            if (emp != null)
+            {
+                var exists = FindById(emp.Id);
+                if (exists != null)
+                {
+                    exists.FirstName = emp.FirstName;
+                    exists.LastName = emp.LastName;
+                    exists.Email = emp.Email;
+                    exists.Password = emp.Password;
+                    exists.UpdatedAt = DateTime.Now;
+                    context.Entry(exists).State = EntityState.Modified;
+                    SaveChanges();
+                }
+            }
             return emp;
         }
         public bool DeleteEmployee(Employee emp)

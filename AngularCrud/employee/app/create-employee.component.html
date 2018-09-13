@@ -3,8 +3,8 @@
         <button class="btn btn-default" (click)="backToList()"> Back To Employee List</button>
     </div>
 </div>
-<div class="row">
-    <form [formGroup]="newEmployeeForm" novalidate (ngSubmit)="createEmployee(newEmployeeForm.value)">
+<div class="row" *ngIf="isFormReady">
+    <form [formGroup]="newEmployeeForm" novalidate (ngSubmit)="createOrUpdateEmployee(newEmployeeForm.value)">
         <div class="form-group">
             <label for="FirstName">First Name:</label>
             <em *ngIf="FirstName.invalid && FirstName.touched">*Required</em>
@@ -26,7 +26,7 @@
             <em *ngIf="Password.invalid && Password.touched">*Required</em>
             <input formControlName="Password" id="Password" type="text" class="form-control" placeholder="Password..." />
         </div>
-        <button type="submit" class="btn btn-primary" [disabled]="newEmployeeForm.invalid || isSaving">Submit</button>
-        <span *ngIf="isSaving"><i class="glyphicon glyphicon-save"></i></span>
+        <button type="submit" class="btn btn-primary" [disabled]="newEmployeeForm.invalid || isSaving">{{isEditMode?'Update':'Create'}} </button>
+        
     </form>
 </div>

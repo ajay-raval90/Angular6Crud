@@ -26,6 +26,30 @@ namespace AngularCrud.Apis
                 return BadRequest(ex.Message);
             }
         }
+        [HttpGet]
+        public IHttpActionResult GetEmployeeById(int Id)
+        {
+            try
+            {
+                using (EmployeeRepository repo = new EmployeeRepository())
+                {
+                    Employee result = repo.FindById(Id);
+                    if (result != null)
+                    {
+                        return Ok(result);
+                    }
+                    else
+                    {
+                        return BadRequest("No Employee Found With Id: "+Id);
+                    }
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
         [HttpPost]
         public IHttpActionResult AddEmployee(Employee emp)
         {

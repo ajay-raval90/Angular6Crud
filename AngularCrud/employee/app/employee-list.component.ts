@@ -24,6 +24,7 @@ export class EmployeeListComponent implements OnInit
     addEmployee() {
         this.router.navigate(['/new']);
     }
+    
     deleteEmployee(emp: any) {
         this.empService.deleteEmployee(emp).subscribe(() => {
             this.loademployees();

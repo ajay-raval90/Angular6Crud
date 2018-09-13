@@ -21,12 +21,21 @@ var EmployeeService = /** @class */ (function () {
             return response.json();
         }).catch(this.handleError);
     };
+    EmployeeService.prototype.getEmployeeById = function (Id) {
+        return this._http.get("/api/employee/action/GetEmployeeById?Id=" + Id).map(function (response) {
+            return response.json();
+        }).catch(this.handleError);
+    };
     EmployeeService.prototype.deleteEmployee = function (emp) {
         return this._http.delete("/api/employee/action/DeleteEmployee?Id=" + emp.Id).map(function (response) {
         }).catch(this.handleError);
     };
     EmployeeService.prototype.addEmployee = function (emp) {
         return this._http.post("/api/employee/action/AddEmployee", emp).map(function (response) {
+        }).catch(this.handleError);
+    };
+    EmployeeService.prototype.updateEmployee = function (emp) {
+        return this._http.put("/api/employee/action/UpdateEmployee", emp).map(function (response) {
         }).catch(this.handleError);
     };
     EmployeeService.prototype.handleError = function (error) {
