@@ -1,4 +1,5 @@
 ﻿import { Component, OnInit } from '@angular/core'
+import { Router } from '@angular/router'
 import { EmployeeService } from './shared/employee-service'
 @Component({
     selector: 'employee-list',
@@ -8,7 +9,7 @@ export class EmployeeListComponent implements OnInit
 {
     Employees: any = [];
     IsemployeeLoaded: boolean =  false;
-    constructor(private empService: EmployeeService) {
+    constructor(private empService: EmployeeService, private router:Router) {
     }
     ngOnInit() {
         this.loademployees();
@@ -18,6 +19,10 @@ export class EmployeeListComponent implements OnInit
             this.Employees = employees;
             this.IsemployeeLoaded = true;
         });
+    }
+
+    addEmployee() {
+        this.router.navigate(['/new']);
     }
     deleteEmployee(emp: any) {
         this.empService.deleteEmployee(emp).subscribe(() => {

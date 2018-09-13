@@ -15,6 +15,11 @@ export class EmployeeService {
             
         }).catch(this.handleError)
     }
+    addEmployee(emp: any): Observable<any> {
+        return this._http.post("/api/employee/action/AddEmployee",emp).map((response: Response) => {
+
+        }).catch(this.handleError)
+    }
 
     handleError(error: Response) {
         return Observable.throw(error);

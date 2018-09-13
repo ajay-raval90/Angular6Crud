@@ -25,6 +25,10 @@ var EmployeeService = /** @class */ (function () {
         return this._http.delete("/api/employee/action/DeleteEmployee?Id=" + emp.Id).map(function (response) {
         }).catch(this.handleError);
     };
+    EmployeeService.prototype.addEmployee = function (emp) {
+        return this._http.post("/api/employee/action/AddEmployee", emp).map(function (response) {
+        }).catch(this.handleError);
+    };
     EmployeeService.prototype.handleError = function (error) {
         return RX_1.Observable.throw(error);
     };

@@ -1,1 +1,32 @@
-﻿Add Employee
+﻿<div class="row">
+    <div class="col-md-11 col-md-offset-10">
+        <button class="btn btn-default" (click)="backToList()"> Back To Employee List</button>
+    </div>
+</div>
+<div class="row">
+    <form [formGroup]="newEmployeeForm" novalidate (ngSubmit)="createEmployee(newEmployeeForm.value)">
+        <div class="form-group">
+            <label for="FirstName">First Name:</label>
+            <em *ngIf="FirstName.invalid && FirstName.touched">*Required</em>
+            <input formControlName="FirstName"  id="FirstName" type="text" class="form-control" placeholder="First Name..." />
+        </div>
+        <div class="form-group">
+            <label for="LastName">Last Name:</label>
+            <em *ngIf="LastName.invalid && LastName.touched">*Required</em>
+            <input formControlName="LastName" id="LastName" type="text" class="form-control" placeholder="Last Name..." />
+        </div>
+        <div class="form-group">
+            <label for="Email">Email address:</label>
+            <em *ngIf="Email.invalid && Email.touched && Email.errors.required">*Required</em>
+            <em *ngIf="Email.invalid && Email.touched && !Email.errors.required && Email.errors.email">*Please enter valid email</em>
+            <input formControlName="Email" id="Email" type="email" class="form-control" placeholder="e-mail..." />
+        </div>
+        <div class="form-group">
+            <label for="Password">Password:</label>
+            <em *ngIf="Password.invalid && Password.touched">*Required</em>
+            <input formControlName="Password" id="Password" type="text" class="form-control" placeholder="Password..." />
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="newEmployeeForm.invalid || isSaving">Submit</button>
+        <span *ngIf="isSaving"><i class="glyphicon glyphicon-save"></i></span>
+    </form>
+</div>
