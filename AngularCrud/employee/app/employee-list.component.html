@@ -3,7 +3,7 @@
 <div *ngIf="IsemployeeLoaded">
     <div class="row">
         <div class="col-md-11 col-md-offset-10">
-            <button class="btn btn-default" (click)="addEmployee()"> Add </button> 
+            <button class="btn btn-default" modal-trigger="createEmployeePopup"> Add </button> 
         </div>
     </div>
     <div class="row">
@@ -30,10 +30,17 @@
                     <th scope="col">{{emp.UpdatedAt | date}}</th>
                     <th scope="col">
                         <a class="btn btn-primary" [routerLink]="['/edit/'+emp.Id]">Edit</a>
-                        <button class="btn btn-danger" (click)="deleteEmployee(emp)">Delete </button>
+                        <button class="btn btn-danger" (click)="deleteEmployee(emp)">Delete</button>
                     </th>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
+
+<!-- Trigger the modal with a button -->
+<simple-modal closeModalOnClick="true" elementId="createEmployeePopup" title="Add Employee">
+    <div class="list-group">
+        <create-employee></create-employee>
+    </div>
+</simple-modal>

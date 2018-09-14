@@ -1,7 +1,6 @@
 ﻿<div class="row">
-    <div class="col-md-11 col-md-offset-10">
-        <button class="btn btn-default" (click)="backToList()"> Back To Employee List</button>
-    </div>
+    <ng-content select="[form-backbutton]"></ng-content>
+    
 </div>
 <div class="row" *ngIf="isFormReady">
     <form [formGroup]="newEmployeeForm" novalidate (ngSubmit)="createOrUpdateEmployee(newEmployeeForm.value)">

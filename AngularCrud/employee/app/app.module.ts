@@ -7,11 +7,16 @@ import { AppComponent } from './app.component';
 import { EmployeeListComponent } from './employee-list.component';
 import { EmployeeService } from './shared/employee-service';
 import { CreateEmployeeComponent } from './create-employee.component'
+import { JQ_TOKEN } from './shared/jQuery-service'
 import { routes } from './routes';
+import { SimpleModalComponent } from './shared/simple-modal.component'
+import { ModalTriggerDirective } from './shared/modal-trigger.directive'
+import { EmployeeWrapperComponent } from './employee-wrapper.component'
+declare let jQuery: Object
 @NgModule({
-    imports: [BrowserModule, HttpModule, RouterModule.forRoot(routes),FormsModule,ReactiveFormsModule],
-    declarations: [AppComponent, EmployeeListComponent, CreateEmployeeComponent],
-    providers: [EmployeeService],
+    imports: [BrowserModule, HttpModule, RouterModule.forRoot(routes),FormsModule,ReactiveFormsModule,],
+    declarations: [AppComponent, EmployeeListComponent, CreateEmployeeComponent, SimpleModalComponent, ModalTriggerDirective, EmployeeWrapperComponent  ],
+    providers: [EmployeeService, { provide: JQ_TOKEN, useValue: jQuery }, CreateEmployeeComponent],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

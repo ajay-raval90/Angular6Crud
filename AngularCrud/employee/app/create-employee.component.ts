@@ -1,8 +1,9 @@
-﻿import { Component, OnInit } from '@angular/core'
+﻿import { Component, OnInit} from '@angular/core'
 import { Router, ActivatedRoute } from '@angular/router'
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { EmployeeService } from './shared/employee-service'
 @Component({
+    selector:'create-employee',
     templateUrl: `/employee/app/create-employee.component.html`,
     styles: [
         `em {color:#E05C65; padding-left:10px}
@@ -27,7 +28,7 @@ export class CreateEmployeeComponent implements OnInit {
     isSaving: boolean = false;
     constructor(private router: Router, private route: ActivatedRoute, private employeeService: EmployeeService) { }
     ngOnInit() {
-
+        console.log("ngOnInit");
         if (this.route.snapshot.params["id"]) {
             //Edit Mode
             this.isEditMode = true;

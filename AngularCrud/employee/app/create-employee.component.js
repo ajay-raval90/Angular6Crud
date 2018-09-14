@@ -24,6 +24,7 @@ var CreateEmployeeComponent = /** @class */ (function () {
     }
     CreateEmployeeComponent.prototype.ngOnInit = function () {
         var _this = this;
+        console.log("ngOnInit");
         if (this.route.snapshot.params["id"]) {
             //Edit Mode
             this.isEditMode = true;
@@ -90,6 +91,7 @@ var CreateEmployeeComponent = /** @class */ (function () {
     };
     CreateEmployeeComponent = __decorate([
         core_1.Component({
+            selector: 'create-employee',
             templateUrl: "/employee/app/create-employee.component.html",
             styles: [
                 "em {color:#E05C65; padding-left:10px}\n    .error input {background-color:#E3C3C5}\n    .error ::-webkit-input-placeholder {color:#999}\n    .error ::-moz-placeholder {color:#999}\n    .error :-moz-placeholder {color:#999}\n    .error :ms-input-placeholder {color:#999}\n     "
