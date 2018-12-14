@@ -20,13 +20,14 @@ var routes_1 = require("./routes");
 var simple_modal_component_1 = require("./shared/simple-modal.component");
 var modal_trigger_directive_1 = require("./shared/modal-trigger.directive");
 var employee_wrapper_component_1 = require("./employee-wrapper.component");
+var gender_pipe_1 = require("./shared/gender.pipe");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, http_1.HttpModule, router_1.RouterModule.forRoot(routes_1.routes), forms_1.FormsModule, forms_1.ReactiveFormsModule,],
-            declarations: [app_component_1.AppComponent, employee_list_component_1.EmployeeListComponent, create_employee_component_1.CreateEmployeeComponent, simple_modal_component_1.SimpleModalComponent, modal_trigger_directive_1.ModalTriggerDirective, employee_wrapper_component_1.EmployeeWrapperComponent],
+            declarations: [app_component_1.AppComponent, employee_list_component_1.EmployeeListComponent, create_employee_component_1.CreateEmployeeComponent, simple_modal_component_1.SimpleModalComponent, modal_trigger_directive_1.ModalTriggerDirective, employee_wrapper_component_1.EmployeeWrapperComponent, gender_pipe_1.GenderPipe],
             providers: [employee_service_1.EmployeeService, { provide: jQuery_service_1.JQ_TOKEN, useValue: jQuery }, create_employee_component_1.CreateEmployeeComponent],
             bootstrap: [app_component_1.AppComponent]
         })

@@ -29,7 +29,7 @@
                     <th scope="col">{{emp.Email}}</th>
                     <th scope="col">{{emp.CreatedAt | date}}</th>
                     <th scope="col">{{emp.UpdatedAt | date}}</th>
-                    <th scope="col">{{emp.Gender}}</th>
+                    <th scope="col">{{emp.Gender | beautifygender}}</th>
                     <th scope="col">
                         <a class="btn btn-primary" [routerLink]="['/edit/'+emp.Id]">Edit</a>
                         <button class="btn btn-danger" (click)="deleteEmployee(emp)">Delete</button>

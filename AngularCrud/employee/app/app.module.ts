@@ -12,10 +12,11 @@ import { routes } from './routes';
 import { SimpleModalComponent } from './shared/simple-modal.component'
 import { ModalTriggerDirective } from './shared/modal-trigger.directive'
 import { EmployeeWrapperComponent } from './employee-wrapper.component'
+import { GenderPipe } from './shared/gender.pipe'
 declare let jQuery: Object
 @NgModule({
     imports: [BrowserModule, HttpModule, RouterModule.forRoot(routes),FormsModule,ReactiveFormsModule,],
-    declarations: [AppComponent, EmployeeListComponent, CreateEmployeeComponent, SimpleModalComponent, ModalTriggerDirective, EmployeeWrapperComponent  ],
+    declarations: [AppComponent, EmployeeListComponent, CreateEmployeeComponent, SimpleModalComponent, ModalTriggerDirective, EmployeeWrapperComponent, GenderPipe  ],
     providers: [EmployeeService, { provide: JQ_TOKEN, useValue: jQuery }, CreateEmployeeComponent],
     bootstrap: [AppComponent]
 })

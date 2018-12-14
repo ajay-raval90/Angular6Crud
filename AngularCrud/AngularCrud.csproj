@@ -301,6 +301,7 @@
     <TypeScriptCompile Include="employee\app\employee-wrapper.component.ts" />
     <TypeScriptCompile Include="employee\app\routes.ts" />
     <TypeScriptCompile Include="employee\app\shared\employee-service.ts" />
+    <TypeScriptCompile Include="employee\app\shared\gender.pipe.ts" />
     <TypeScriptCompile Include="employee\app\shared\jQuery-service.ts" />
     <TypeScriptCompile Include="employee\app\shared\modal-trigger.directive.ts" />
     <TypeScriptCompile Include="employee\app\shared\simple-modal.component.ts" />
