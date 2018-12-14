@@ -2,6 +2,7 @@
 import { Router, ActivatedRoute } from '@angular/router'
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { EmployeeService } from './shared/employee-service'
+import { debounce } from 'rxjs/operators';
 @Component({
     selector:'create-employee',
     templateUrl: `/employee/app/create-employee.component.html`,
@@ -23,6 +24,10 @@ export class CreateEmployeeComponent implements OnInit {
     LastName: FormControl;
     Email: FormControl;
     Password: FormControl;
+    Gender: FormControl;
+
+    validGenders = [{ 'id': 1, 'value': 'Male' }, { 'id': 2, 'value': 'Female' }];
+
     isEditMode: boolean = false;
     isFormReady: boolean = false;
     isSaving: boolean = false;
@@ -38,13 +43,14 @@ export class CreateEmployeeComponent implements OnInit {
                 this.LastName = new FormControl(emp.LastName, Validators.required);
                 this.Email = new FormControl(emp.Email, [Validators.required, Validators.email]);
                 this.Password = new FormControl(emp.Password, Validators.required);
-
+                this.Gender = new FormControl(emp.Gender);
                 this.newEmployeeForm = new FormGroup({
                     Id: this.Id,
                     FirstName: this.FirstName,
                     LastName: this.LastName,
                     Email: this.Email,
-                    Password: this.Password
+                    Password: this.Password,
+                    Gender: this.Gender
                 });
                 this.isFormReady = true;
             }, () => {
@@ -59,12 +65,13 @@ export class CreateEmployeeComponent implements OnInit {
             this.LastName = new FormControl('', Validators.required);
             this.Email = new FormControl('', [Validators.required, Validators.email]);
             this.Password = new FormControl('', Validators.required);
-
+            this.Gender = new FormControl('');
             this.newEmployeeForm = new FormGroup({
                 FirstName: this.FirstName,
                 LastName: this.LastName,
                 Email: this.Email,
-                Password: this.Password
+                Password: this.Password,
+                Gender: this.Gender
             });
             this.isFormReady = true;
         }
@@ -73,6 +80,7 @@ export class CreateEmployeeComponent implements OnInit {
         this.router.navigate(['list']);
     }
     createOrUpdateEmployee(formValues: any) {
+        
         this.isSaving = true;
         if (!this.isEditMode) {
             this.employeeService.addEmployee(formValues).subscribe(() => {

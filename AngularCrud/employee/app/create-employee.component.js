@@ -18,6 +18,7 @@ var CreateEmployeeComponent = /** @class */ (function () {
         this.router = router;
         this.route = route;
         this.employeeService = employeeService;
+        this.validGenders = [{ 'id': 1, 'value': 'Male' }, { 'id': 2, 'value': 'Female' }];
         this.isEditMode = false;
         this.isFormReady = false;
         this.isSaving = false;
@@ -34,12 +35,14 @@ var CreateEmployeeComponent = /** @class */ (function () {
                 _this.LastName = new forms_1.FormControl(emp.LastName, forms_1.Validators.required);
                 _this.Email = new forms_1.FormControl(emp.Email, [forms_1.Validators.required, forms_1.Validators.email]);
                 _this.Password = new forms_1.FormControl(emp.Password, forms_1.Validators.required);
+                _this.Gender = new forms_1.FormControl(emp.Gender);
                 _this.newEmployeeForm = new forms_1.FormGroup({
                     Id: _this.Id,
                     FirstName: _this.FirstName,
                     LastName: _this.LastName,
                     Email: _this.Email,
-                    Password: _this.Password
+                    Password: _this.Password,
+                    Gender: _this.Gender
                 });
                 _this.isFormReady = true;
             }, function () {
@@ -53,11 +56,13 @@ var CreateEmployeeComponent = /** @class */ (function () {
             this.LastName = new forms_1.FormControl('', forms_1.Validators.required);
             this.Email = new forms_1.FormControl('', [forms_1.Validators.required, forms_1.Validators.email]);
             this.Password = new forms_1.FormControl('', forms_1.Validators.required);
+            this.Gender = new forms_1.FormControl('');
             this.newEmployeeForm = new forms_1.FormGroup({
                 FirstName: this.FirstName,
                 LastName: this.LastName,
                 Email: this.Email,
-                Password: this.Password
+                Password: this.Password,
+                Gender: this.Gender
             });
             this.isFormReady = true;
         }

@@ -13,7 +13,7 @@ import { JQ_TOKEN } from './jQuery-service';
                     </button>
                     <h4 class="modal-title">{{title}}</h4>
                 </div>
-                <div class="modal-body" (click)="closeModal()">
+                <div class="modal-body">
                     <ng-content></ng-content>
                 </div>
             </div>

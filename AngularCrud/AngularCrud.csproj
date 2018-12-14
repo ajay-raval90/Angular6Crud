@@ -27,6 +27,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TypeScriptToolsVersion>2.7</TypeScriptToolsVersion>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -206,6 +207,10 @@
     <Compile Include="Migrations\201809131535138_InitialCreate.Designer.cs">
       <DependentUpon>201809131535138_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812141119133_alter_table_employee_add_gender.cs" />
+    <Compile Include="Migrations\201812141119133_alter_table_employee_add_gender.Designer.cs">
+      <DependentUpon>201812141119133_alter_table_employee_add_gender.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -274,6 +279,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201809131535138_InitialCreate.resx">
       <DependentUpon>201809131535138_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812141119133_alter_table_employee_add_gender.resx">
+      <DependentUpon>201812141119133_alter_table_employee_add_gender.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

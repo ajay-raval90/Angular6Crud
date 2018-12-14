@@ -30,8 +30,15 @@ namespace AngularCrud.DB
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public Gender Gender { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public string ProfileImgPath { get; set; }
+    }
+
+    public enum Gender
+    {
+        Male = 1,
+        Female = 2
     }
 }

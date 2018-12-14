@@ -42,7 +42,7 @@ var SimpleModalComponent = /** @class */ (function () {
     SimpleModalComponent = __decorate([
         core_1.Component({
             selector: 'simple-modal',
-            template: "\n    <div id=\"{{elementId}}\" #modalContainer class=\"modal fade\" tabindex=\"-1\">\n        <div class=\"modal-dialog\">\n            <div class=\"modal-content\">\n                <div class=\"modal-header\">\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\">\n                        <span>&times;</span>\n                    </button>\n                    <h4 class=\"modal-title\">{{title}}</h4>\n                </div>\n                <div class=\"modal-body\" (click)=\"closeModal()\">\n                    <ng-content></ng-content>\n                </div>\n            </div>\n        </div>\n    </div>\n    "
+            template: "\n    <div id=\"{{elementId}}\" #modalContainer class=\"modal fade\" tabindex=\"-1\">\n        <div class=\"modal-dialog\">\n            <div class=\"modal-content\">\n                <div class=\"modal-header\">\n                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\">\n                        <span>&times;</span>\n                    </button>\n                    <h4 class=\"modal-title\">{{title}}</h4>\n                </div>\n                <div class=\"modal-body\">\n                    <ng-content></ng-content>\n                </div>\n            </div>\n        </div>\n    </div>\n    "
         }),
         __param(0, core_1.Inject(jQuery_service_1.JQ_TOKEN)),
         __metadata("design:paramtypes", [Object])

@@ -7,7 +7,7 @@
         <div class="form-group">
             <label for="FirstName">First Name:</label>
             <em *ngIf="FirstName.invalid && FirstName.touched">*Required</em>
-            <input formControlName="FirstName"  id="FirstName" type="text" class="form-control" placeholder="First Name..." />
+            <input formControlName="FirstName" id="FirstName" type="text" class="form-control" placeholder="First Name..." />
         </div>
         <div class="form-group">
             <label for="LastName">Last Name:</label>
@@ -25,7 +25,14 @@
             <em *ngIf="Password.invalid && Password.touched">*Required</em>
             <input formControlName="Password" id="Password" type="text" class="form-control" placeholder="Password..." />
         </div>
+
+        <div class="form-group">
+            <label for="Gender">Gender</label>
+            <select class="form-control" id="contry" formControlName="Gender">
+                <option *ngFor="let gender of validGenders" [value]="gender.id">{{gender.value}}</option>
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary" [disabled]="newEmployeeForm.invalid || isSaving">{{isEditMode?'Update':'Create'}} </button>
-        
+
     </form>
 </div>
