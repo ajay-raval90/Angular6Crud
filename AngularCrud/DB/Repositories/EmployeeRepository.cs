@@ -44,6 +44,7 @@ namespace AngularCrud.DB
                     exists.Password = emp.Password;
                     exists.Gender = emp.Gender;
                     exists.UpdatedAt = DateTime.Now;
+                    exists.SelectedSkills = emp.SelectedSkills;
                     context.Entry(exists).State = EntityState.Modified;
                     SaveChanges();
                 }

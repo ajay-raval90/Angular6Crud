@@ -34,6 +34,7 @@ namespace AngularCrud.DB
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public string ProfileImgPath { get; set; }
+        public string SelectedSkills { get; set; }
     }
 
     public enum Gender

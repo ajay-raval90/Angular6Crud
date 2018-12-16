@@ -211,6 +211,10 @@
     <Compile Include="Migrations\201812141119133_alter_table_employee_add_gender.Designer.cs">
       <DependentUpon>201812141119133_alter_table_employee_add_gender.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812160646541_alter_table_employee_selectedskills.cs" />
+    <Compile Include="Migrations\201812160646541_alter_table_employee_selectedskills.Designer.cs">
+      <DependentUpon>201812160646541_alter_table_employee_selectedskills.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -282,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812141119133_alter_table_employee_add_gender.resx">
       <DependentUpon>201812141119133_alter_table_employee_add_gender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812160646541_alter_table_employee_selectedskills.resx">
+      <DependentUpon>201812160646541_alter_table_employee_selectedskills.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

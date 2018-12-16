@@ -32,6 +32,12 @@
                 <option *ngFor="let gender of validGenders" [value]="gender.id">{{gender.value}}</option>
             </select>
         </div>
+        <div class="form-group">
+            <div *ngFor="let skill of Skills.controls; let i=index">
+                <input type="checkbox" [formControl]="skill" /> {{validskills[i].name}}
+            </div>  
+        </div>
+        
         <button type="submit" class="btn btn-primary" [disabled]="newEmployeeForm.invalid || isSaving">{{isEditMode?'Update':'Create'}} </button>
 
     </form>

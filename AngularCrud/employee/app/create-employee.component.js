@@ -18,6 +18,14 @@ var CreateEmployeeComponent = /** @class */ (function () {
         this.router = router;
         this.route = route;
         this.employeeService = employeeService;
+        this.validskills = [
+            { name: 'HTML', id: 0 },
+            { name: 'JS', id: 1 },
+            { name: 'CSS', id: 2 },
+            { name: 'SQL', id: 3 },
+            { name: 'C#', id: 4 },
+            { name: 'MVC', id: 5 }
+        ];
         this.validGenders = [{ 'id': 1, 'value': 'Male' }, { 'id': 2, 'value': 'Female' }];
         this.isEditMode = false;
         this.isFormReady = false;
@@ -25,11 +33,11 @@ var CreateEmployeeComponent = /** @class */ (function () {
     }
     CreateEmployeeComponent.prototype.ngOnInit = function () {
         var _this = this;
-        console.log("ngOnInit");
         if (this.route.snapshot.params["id"]) {
             //Edit Mode
             this.isEditMode = true;
             this.employeeService.getEmployeeById(+this.route.snapshot.params["id"]).subscribe(function (emp) {
+                _this.buildSkills(emp.SelectedSkills.split(','));
                 _this.Id = new forms_1.FormControl(emp.Id);
                 _this.FirstName = new forms_1.FormControl(emp.FirstName, forms_1.Validators.required);
                 _this.LastName = new forms_1.FormControl(emp.LastName, forms_1.Validators.required);
@@ -42,7 +50,8 @@ var CreateEmployeeComponent = /** @class */ (function () {
                     LastName: _this.LastName,
                     Email: _this.Email,
                     Password: _this.Password,
-                    Gender: _this.Gender
+                    Gender: _this.Gender,
+                    Skills: _this.Skills
                 });
                 _this.isFormReady = true;
             }, function () {
@@ -52,6 +61,7 @@ var CreateEmployeeComponent = /** @class */ (function () {
         }
         else {
             //Add Mode
+            this.buildSkills();
             this.FirstName = new forms_1.FormControl('', forms_1.Validators.required);
             this.LastName = new forms_1.FormControl('', forms_1.Validators.required);
             this.Email = new forms_1.FormControl('', [forms_1.Validators.required, forms_1.Validators.email]);
@@ -62,7 +72,8 @@ var CreateEmployeeComponent = /** @class */ (function () {
                 LastName: this.LastName,
                 Email: this.Email,
                 Password: this.Password,
-                Gender: this.Gender
+                Gender: this.Gender,
+                Skills: this.Skills
             });
             this.isFormReady = true;
         }
@@ -72,6 +83,7 @@ var CreateEmployeeComponent = /** @class */ (function () {
     };
     CreateEmployeeComponent.prototype.createOrUpdateEmployee = function (formValues) {
         var _this = this;
+        formValues.SelectedSkills = this.transformSkillsInIds(formValues.Skills);
         this.isSaving = true;
         if (!this.isEditMode) {
             this.employeeService.addEmployee(formValues).subscribe(function () {
@@ -93,6 +105,27 @@ var CreateEmployeeComponent = /** @class */ (function () {
                 alert("Something went wrong while updating employee.");
             });
         }
+    };
+    CreateEmployeeComponent.prototype.buildSkills = function (selectedSkillIds) {
+        var arr = this.validskills.map(function (skill) {
+            if (selectedSkillIds != null && selectedSkillIds.indexOf(skill.id.toString()) > -1) {
+                return new forms_1.FormControl(true);
+            }
+            return new forms_1.FormControl(false);
+        });
+        this.Skills = new forms_1.FormArray(arr);
+    };
+    CreateEmployeeComponent.prototype.transformSkillsInIds = function (s) {
+        var _this = this;
+        var count = 0;
+        var selectedSkillsIds = [];
+        s.forEach(function (x) {
+            if (x == true) {
+                selectedSkillsIds.push(_this.validskills[count].id);
+            }
+            count++;
+        });
+        return selectedSkillsIds.join(",");
     };
     CreateEmployeeComponent = __decorate([
         core_1.Component({
